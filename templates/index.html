@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ask me anything</title>
+
+   
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <script src="../static/js/jquery-1.11.2.js"></script>
+    <script src="../static/js/question.js"></script>
+    <script>
+	$(function(){
+		$.ajax({
+			url : '/AskMe',
+			type : 'GET',
+			success: function(res){
+				var div = $('<div>')
+    .attr('class', 'list-group')
+    .append($('<a>')
+        .attr('class', 'list-group-item active')
+        .append($('<h4>')
+            .attr('class', 'list-group-item-heading'),
+            $('<p>')
+            .attr('class', 'list-group-item-text')));
+
+
+
+				var wishObj = JSON.parse(res);
+				var wish = '';
+
+				$.each(wishObj,function(index, value){
+					wish = $(div).clone();
+					$(wish).find('h4').text(value.question);
+					$(wish).find('p').text(value.answer);
+					$('.jumbotron').append(wish);
+				});
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+    </script>
+   
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Chat Bot App</h3>
+      </div>
+
+      <div class="ask">
+        <h1>Ask me anything</h1>
+        <form class="form-signin" action="/save" method="post">
+          <label for="inputName" class="sr-only">Name</label>
+          <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Question" required autofocus>
+          <p class="lead"></p>
+          <button id="btnAsk" class="btn btn-lg btn-primary btn-block" type="submit">Ask</button>
+        </form>
+      </div>
+
+      <div class="jumbotron">
+
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Bottr 2017</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
+
