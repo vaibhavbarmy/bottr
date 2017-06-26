@@ -1,19 +1,8 @@
 from flask import Flask, render_template, json, request,redirect,session,jsonify
-from flaskext.mysql import MySQL
 import utils
-from werkzeug import generate_password_hash, check_password_hash
 
-mysql = MySQL()
 app = Flask(__name__)
 app.secret_key = 'why would I tell you my secret key?'
-
-# MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'jay'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'jay'
-app.config['MYSQL_DATABASE_DB'] = 'BucketList'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
-
 
 @app.route('/')
 def main():
@@ -34,8 +23,6 @@ def AskMe():
     query = ''
     if session.get('query'):
         query = session.get('query')
-    else:
-        None
     try:
         # validate the received values
         if query != '':

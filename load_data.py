@@ -12,4 +12,8 @@ def load_data():
         print (record_id)
         print (mydb.collection_names())
 
+def create_indexes():
+    mydb.mytable.create_index([('tags', pymongo.TEXT), ("question", pymongo.TEXT)], name='search_index', default_language='english')
+
 load_data()
+create_indexes()
