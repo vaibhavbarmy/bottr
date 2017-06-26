@@ -24,3 +24,7 @@ $ python load_data.py
 How to run
 
 $ python app.py
+
+UI interface on
+
+http://127.0.0.1:5002/
