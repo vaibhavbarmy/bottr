@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa41e512-ff56-43fa-9d0e-819053417299" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils.py" afterPath="$PROJECT_DIR$/utils.py" />
-    </list>
+    <list default="true" id="aa41e512-ff56-43fa-9d0e-819053417299" name="Default" comment="" />
     <ignored path="bottr.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
