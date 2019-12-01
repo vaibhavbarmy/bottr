@@ -19,6 +19,8 @@ $ python
 
 Load data to mongodb test collection
 
+$ brew services start mongodb
+
 $ python load_data.py
 
 How to run
